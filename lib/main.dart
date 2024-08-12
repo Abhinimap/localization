@@ -33,7 +33,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       initLanguageCode: 'en',
     );
     _localization.onTranslatedLanguage = _onTranslatedLanguage;
-print('----->${Platform.localeName}');
     _localization.translate(Platform.localeName=='hi_IN'?'hi':'en');
 
   }
@@ -51,7 +50,6 @@ print('----->${Platform.localeName}');
   @override
   void didChangeLocales(List<Locale>? locales) {
     super.didChangeLocales(locales);
-    debugPrint(locales?.isNotEmpty ?? false?'did lang changes : ${locales?.first.languageCode} ${locales?.first.countryCode}':"empty locla");
     if (locales != null) {
       for (Locale loc in locales) {
         if (AppLocale.allSupportedLocales.contains(loc.languageCode)) {
